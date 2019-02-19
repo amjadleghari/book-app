@@ -1,0 +1,15 @@
+<button mat-button color="primary" routerLink="/create-book">Create Book</button>
+<mat-card *ngFor="let book of books" class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{book.id}}.{{book.title}}</mat-card-title>
+    <mat-card-subtitle>{{book.author}}</mat-card-subtitle>
+    <mat-card-subtitle>{{book.category}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{book.description}}</p>
+  </mat-card-content>
+</mat-card>  
+
+<!--<button class="create" title="create book" (click)="create(book)">Create Book</button>-->
+
+

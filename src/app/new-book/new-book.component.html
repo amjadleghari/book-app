@@ -1,0 +1,36 @@
+<form [formGroup]="newBookForm" (ngSubmit)="onSubmit()">
+  
+  <div class="example-container">
+    <mat-form-field>
+      <input matInput #title color="primary" type="text" formControlName="title" placeholder="title" required>
+      <mat-hint align="end">{{title.value?.length || 0}}/30</mat-hint>
+      <mat-error *ngIf="hasError('title', 'required')">Title is required.</mat-error>
+      <mat-error *ngIf="hasError('title', 'maxlength')">Title must not be more than 30 characters long.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="example-container">
+    <mat-form-field>
+      <input matInput #author color="primary" type="text" formControlName="author" placeholder="author" required>
+      <mat-error *ngIf="hasError('author', 'required')">Author is required.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="example-container">
+    <mat-form-field>
+      <mat-select #category color="primary" placeholder="category" formControlName="category" required>
+        <mat-option>Select</mat-option>
+        <mat-option *ngFor="let category of categories" [value]="category">
+          {{category}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="hasError('category', 'required')">Category is required.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="example-container">
+    <mat-form-field>
+      <textarea matInput color="primary" formControlName="description" placeholder="description" rows="4"></textarea>
+    </mat-form-field>
+  </div>
+  
+  <button type="submit" [disabled]="!newBookForm.valid">Submit</button>
+  <button type="back" Click=(goBack())>Back</button>
+</form>
