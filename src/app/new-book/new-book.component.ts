@@ -4,7 +4,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Book } from '../Book';
 import { BookService } from '../book.service';
 
 
@@ -35,8 +34,10 @@ export class NewBookComponent implements OnInit {
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.newBookForm.value);
-    this.bookService.addBook(this.newBookForm.value)
-      .subscribe(() => this.goBack());
+    if (this.newBookForm.valid) {
+      this.bookService.addBook(this.newBookForm.value)
+        .subscribe(() => this.goBack()); 
+    }
   }
 
   public hasError = (controlName: string, errorName: string) => {
@@ -44,6 +45,7 @@ export class NewBookComponent implements OnInit {
   }
 
   goBack(): void {
+    this.newBookForm.reset();
     this.location.back();
   }
 

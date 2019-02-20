@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./book-list.component.css']
 })
 export class BookListComponent implements OnInit {
-
+title: string;
   books: Book[];
   constructor(private bookService: BookService) { }
 
@@ -21,8 +21,11 @@ export class BookListComponent implements OnInit {
 
   getBooks(): void {
     this.bookService.getBooks()
-      .subscribe(books => this.books = books.sort());
-    console.warn(this.books);
+      .subscribe(books => {
+        this.books = books;
+        this.title = "Books Count: "+((this.books != null) ? this.books.length : '0');
+      });
+    //console.warn(this.books);
   }
 
 }

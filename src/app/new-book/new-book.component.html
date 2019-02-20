@@ -1,4 +1,4 @@
-<form [formGroup]="newBookForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="newBookForm" >
   
   <div class="example-container">
     <mat-form-field>
@@ -31,6 +31,6 @@
     </mat-form-field>
   </div>
   
-  <button type="submit" [disabled]="!newBookForm.valid">Submit</button>
-  <button type="back" Click=(goBack())>Back</button>
+  <button type="submit" [disabled]="!newBookForm.valid" (click)="onSubmit()">Submit</button>
+  <button type="back" (click)="goBack()">Back</button>
 </form>
