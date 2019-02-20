@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Book } from '../Book';
 import { BookService } from '../book.service';
 
-import { map, takeWhile, startWith } from 'rxjs/operators';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-book-list',
@@ -23,9 +21,13 @@ title: string;
     this.bookService.getBooks()
       .subscribe(books => {
         this.books = books;
-        this.title = "Books Count: "+((this.books != null) ? this.books.length : '0');
       });
-    //console.warn(this.books);
+  }
+
+  deleteBook(Id: number): void {
+    this.books = this.books.filter(b => b.id !== Id);
+    this.bookService.deleteBook(Id)
+    .subscribe();
   }
 
 }

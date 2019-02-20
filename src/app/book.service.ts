@@ -22,8 +22,6 @@ export class BookService {
     private http: HttpClient) { }
 
   getBooks(): Observable<Book[]> {
-    //this.messageService.add('BookService: fetched books');
-    //return of(BOOKS);
     return this.http.get<Book[]>(this.booksUrl)
       .pipe(
         catchError(this.handleError('getBooks', []))
@@ -42,9 +40,6 @@ export class BookService {
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
 
-      // TODO: better job of transforming error for user consumption
-      this.log(`${operation} failed: ${error.message}`);
-
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
@@ -54,24 +49,21 @@ export class BookService {
   getbook(id: number): Observable<Book> {
     const url = `${this.booksUrl}/${id}`;
     return this.http.get<Book>(url).pipe(
-      tap(_ => this.log(`fetched book id=${id}`)),
-      catchError(this.handleError<Book>(`getbook id=${id}`))
+          catchError(this.handleError<Book>(`getbook id=${id}`))
     );
   }
 
   /** PUT: update the book on the server */
   updateBook(book: Book): Observable<any> {
     return this.http.put(this.booksUrl, book, httpOptions).pipe(
-      tap(_ => this.log(`updated book id=${book.id}`)),
-      catchError(this.handleError<any>('updateBook'))
+           catchError(this.handleError<any>('updateBook'))
     );
   }
 
   /** POST: add a new book to the server */
   addBook(book: Book): Observable<Book> {
     return this.http.post<Book>(this.booksUrl, book, httpOptions).pipe(
-      tap((book: Book) => this.log(`added book w/ id=${book.id}`)),
-      catchError(this.handleError<Book>('addBook'))
+            catchError(this.handleError<Book>('addBook'))
     );
   }
 
@@ -81,14 +73,9 @@ export class BookService {
     const url = `${this.booksUrl}/${id}`;
 
     return this.http.delete<Book>(url, httpOptions).pipe(
-      tap(_ => this.log(`deleted book id=${id}`)),
-      catchError(this.handleError<Book>('deletebook'))
+          catchError(this.handleError<Book>('deletebook'))
     );
-    
   }
 
-  /** Log a MovieService message with the MessageService */
-  private log(message: string) {
-    //this.messageService.add(`MovieService: ${message}`);
-  }
+
 }

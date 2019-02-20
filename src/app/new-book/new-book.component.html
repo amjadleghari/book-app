@@ -1,5 +1,6 @@
+
 <form [formGroup]="newBookForm" >
-  
+  <mat-toolbar>Create Book</mat-toolbar>
   <div class="example-container">
     <mat-form-field>
       <input matInput #title color="primary" type="text" formControlName="title" placeholder="title" required>
@@ -30,7 +31,9 @@
       <textarea matInput color="primary" formControlName="description" placeholder="description" rows="4"></textarea>
     </mat-form-field>
   </div>
+  <div class="example-container">
+    <button mat-raised-button color="primary" [disabled]="!newBookForm.valid" (click)="onSubmit()">Submit</button>
+    <button mat-raised-button color="primary" (click)="goBack()">Back</button>
+  </div>
   
-  <button type="submit" [disabled]="!newBookForm.valid" (click)="onSubmit()">Submit</button>
-  <button type="back" (click)="goBack()">Back</button>
 </form>

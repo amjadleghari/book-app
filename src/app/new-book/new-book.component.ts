@@ -24,19 +24,17 @@ export class NewBookComponent implements OnInit {
   });
 
   constructor(
-    private route: ActivatedRoute, 
-    private bookService: BookService, 
+    private route: ActivatedRoute,
+    private bookService: BookService,
     private location: Location) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.newBookForm.value);
-    if (this.newBookForm.valid) {
+      if (this.newBookForm.valid) {
       this.bookService.addBook(this.newBookForm.value)
-        .subscribe(() => this.goBack()); 
+        .subscribe(() => this.goBack());
     }
   }
 
