@@ -14,7 +14,7 @@ import { MyOwnCustomMaterialModule } from './my-own-custom-material-module/my-ow
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -29,6 +29,7 @@ import { InMemoryDataService } from './in-memory-data.service';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MyOwnCustomMaterialModule,
+    FlexLayoutModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
