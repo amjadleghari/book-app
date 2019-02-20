@@ -8,14 +8,14 @@ import {Book} from '../app/Book';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-}
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
 
- 
+
   private booksUrl = 'api/books';  // URL to web api
 
   constructor(

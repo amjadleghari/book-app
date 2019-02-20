@@ -15,7 +15,7 @@ export class InMemoryDataService {
         'category': 'Litrary Fiction, Fiction Classics, Historical Fiction',
         'author': 'Leo Tolstoy',
 // tslint:disable-next-line: max-line-length
-        'description': 'War and Peace broadly focuses on Napoleon’s invasion of Russia in 1812 and follows three of the most well-known characters in literature: Pierre Bezukhov, the illegitimate son of a count who is fighting for his inheritance and yearning for spiritual fulfillment; ' + 
+        'description': 'War and Peace broadly focuses on Napoleon’s invasion of Russia in 1812 and follows three of the most well-known characters in literature: Pierre Bezukhov, the illegitimate son of a count who is fighting for his inheritance and yearning for spiritual fulfillment; ' +
 // tslint:disable-next-line: max-line-length
         'Prince Andrei Bolkonsky, who leaves his family behind to fight in the war against Napoleon; and Natasha Rostov, the beautiful young daughter of a nobleman who intrigues both men.' +
 // tslint:disable-next-line: max-line-length
@@ -26,6 +26,7 @@ export class InMemoryDataService {
         'title': 'Song of Solomon',
         'category': 'Litrary Fiction',
         'author': 'Toni Morrison',
+// tslint:disable-next-line: max-line-length
         'description': 'Milkman Dead was born shortly after a neighborhood eccentric hurled himself off a rooftop in a vain attempt at flight.For the rest of his life he, too, will be trying to fly.With this brilliantly imagined novel, Toni Morrison transfigures the coming- of - age story as audaciously as Saul Bellow or Gabriel García Márquez.As she follows Milkman from his rustbelt city to the place of his family’s origins, Morrison introduces an entire cast of strivers and seeresses, liars and assassins, the inhabitants of a fully realized black world.'
       },
       {

@@ -17,7 +17,7 @@ import { MatButtonModule, MatCheckboxModule, MatCardModule,
     MatButtonModule,
     MatCheckboxModule,
     MatCardModule,
-    MatInputModule, 
+    MatInputModule,
     MatOptionModule,
     MatSelectModule,
     MatToolbarModule
