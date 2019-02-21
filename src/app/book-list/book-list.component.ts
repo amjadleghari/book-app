@@ -20,7 +20,7 @@ title: string;
   getBooks(): void {
     this.bookService.getBooks()
       .subscribe(books => {
-        this.books = books
+        this.books = books;
       });
   }
 
