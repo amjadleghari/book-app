@@ -29,6 +29,7 @@ title: string;
     .subscribe(val => {
       this.books = this.books.filter(b => b.id !== Id);
     });
+
   }
 
 }
