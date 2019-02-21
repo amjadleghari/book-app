@@ -33,9 +33,11 @@ export class NewBookComponent implements OnInit {
   }
 
   onSubmit() {
+
       if (this.newBookForm.valid) {
       this.bookService.addBook(this.newBookForm.value)
         .subscribe(() => this.goBack());
+
     }
   }
 
