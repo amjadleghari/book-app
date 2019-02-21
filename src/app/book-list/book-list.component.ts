@@ -21,7 +21,7 @@ title: string;
     this.bookService.getBooks()
       .subscribe(books => {
         this.books = books;
-<<<<<<< HEAD
+
       });
   }
 
@@ -30,11 +30,6 @@ title: string;
     .subscribe(val => {
       this.books = this.books.filter(b => b.id !== Id);
     });
-=======
-        this.title = "Books Count: "+((this.books != null) ? this.books.length : '0');
-      });
-    //console.warn(this.books);
->>>>>>> f8039ba... resolved false submission.
   }
 
 }
