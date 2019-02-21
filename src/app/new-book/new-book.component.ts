@@ -15,9 +15,10 @@ import { BookService } from '../book.service';
 
 
 export class NewBookComponent implements OnInit {
+  TITLE_MAXLENGTH = 30;
   categories = ['drama', 'comedy', 'sport'];
   newBookForm = new FormGroup({
-    title: new FormControl('', [Validators.required, Validators.maxLength(30)]),
+    title: new FormControl('', [Validators.required, Validators.maxLength(this.TITLE_MAXLENGTH)]),
     author: new FormControl('', Validators.required),
     category: new FormControl('', Validators.required),
     description: new FormControl(''),

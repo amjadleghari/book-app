@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import {Book} from '../app/Book';
+import {Book} from '../app/model/book';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -14,8 +14,6 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class BookService {
-
-
   private booksUrl = 'api/books';  // URL to web api
 
   constructor(
@@ -46,7 +44,7 @@ export class BookService {
   }
 
   /** GET book by id. Will 404 if id not found */
-  getbook(id: number): Observable<Book> {
+  getBook(id: number): Observable<Book> {
     const url = `${this.booksUrl}/${id}`;
     return this.http.get<Book>(url).pipe(
           catchError(this.handleError<Book>(`getbook id=${id}`))

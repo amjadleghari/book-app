@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Book } from '../Book';
+import { Book } from '../model/book';
 import { BookService } from '../book.service';
 
 
@@ -25,9 +25,10 @@ title: string;
   }
 
   deleteBook(Id: number): void {
-    this.books = this.books.filter(b => b.id !== Id);
     this.bookService.deleteBook(Id)
-    .subscribe();
+    .subscribe(val => {
+      this.books = this.books.filter(b => b.id !== Id);
+    });
   }
 
 }

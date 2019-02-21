@@ -1,42 +1,39 @@
-<div fxFlex fxLayout="column" fxLayoutGap="10px" style="height:100vh">
-<div fxLayoutAlign="center" >
-<form [formGroup]="newBookForm" >
-  <mat-toolbar>Create Book</mat-toolbar>
-  <div class="example-container">
-    <mat-form-field>
-      <input matInput #title type="text" formControlName="title" placeholder="title" required>
-      <mat-hint align="end">{{title.value?.length || 0}}/30</mat-hint>
-      <mat-error *ngIf="hasError('title', 'required')">Title is required.</mat-error>
-      <mat-error *ngIf="hasError('title', 'maxlength')">Title must not be more than 30 characters long.</mat-error>
-    </mat-form-field>
-  </div>
-  <div class="example-container">
-    <mat-form-field>
-      <input matInput #author type="text" formControlName="author" placeholder="author" required>
-      <mat-error *ngIf="hasError('author', 'required')">Author is required.</mat-error>
-    </mat-form-field>
-  </div>
-  <div class="example-container">
-    <mat-form-field>
-      <mat-select #category placeholder="category" formControlName="category" required>
-        <mat-option>Select</mat-option>
-        <mat-option *ngFor="let category of categories" [value]="category">
-          {{category}}
-        </mat-option>
-      </mat-select>
-      <mat-error *ngIf="hasError('category', 'required')">Category is required.</mat-error>
-    </mat-form-field>
-  </div>
-  <div class="example-container">
-    <mat-form-field>
-      <textarea matInput formControlName="description" placeholder="description" rows="4"></textarea>
-    </mat-form-field>
-  </div>
-  <div class="example-container">
-    <button mat-raised-button [disabled]="!newBookForm.valid" (click)="onSubmit()">Submit</button>
-    <button mat-raised-button (click)="goBack()">Back</button>
-  </div>
-  
-</form>
-</div>
+<div fxLayout="column" fxLayoutAlign="space-around center">
+  <form [formGroup]="newBookForm" >
+    <mat-toolbar>Create Book</mat-toolbar>
+    <div>
+      <mat-form-field>
+        <input matInput #title type="text" formControlName="title" placeholder="title" required>
+        <mat-hint align="end">{{title.value?.length || 0}}/{{TITLE_MAXLENGTH}}</mat-hint>
+        <mat-error *ngIf="hasError('title', 'required')">Title is required.</mat-error>
+        <mat-error *ngIf="hasError('title', 'maxlength')">Title must not be more than {{TITLE_MAXLENGTH}} characters long.</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput #author type="text" formControlName="author" placeholder="author" required>
+        <mat-error *ngIf="hasError('author', 'required')">Author is required.</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-select #category placeholder="category" formControlName="category" required>
+          <mat-option>Select</mat-option>
+          <mat-option *ngFor="let category of categories" [value]="category">
+            {{category}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="hasError('category', 'required')">Category is required.</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <textarea matInput formControlName="description" placeholder="description" rows="4"></textarea>
+      </mat-form-field>
+    </div>
+    <div>
+      <button mat-raised-button [disabled]="!newBookForm.valid" (click)="onSubmit()">Submit</button>
+      <button mat-raised-button (click)="goBack()">Back</button>
+    </div>
+  </form>
 </div>
